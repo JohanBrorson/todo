@@ -1,0 +1,15 @@
+li {
+  padding: 5px;
+  margin: 0;
+}
+
+input[type=checkbox] {
+  transform: scale(1.5);
+  margin-right: 12px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+input[type=checkbox]:checked + label {
+  opacity: 0.6;
+}
