@@ -6,7 +6,6 @@ import { shallow } from 'enzyme'
 describe('<ToDoList />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<ToDoList />)
-    wrapper.setProps("a", "b")
     expect(wrapper.getElement()).toMatchSnapshot();
   });
 });
