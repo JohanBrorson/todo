@@ -1,40 +1,36 @@
 import React from 'react';
 import './ToDoItem.css';
+import RemoveButton from './RemoveButton';
 
-export default class ToDoItem extends React.PureComponent {
+export default class ToDoItem extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      index: props.id,
-      completed: props.todoItem.completed,
-      title: props.todoItem.title,
-    };
-
+  constructor() {
+    super();
     this.onChange = this.onChange.bind(this);
   }
 
-  onChange(event) {
-    var currentCompletedState = this.state.completed;
-    this.props.toggle(this.state.index);
-    this.setState({
-      completed: !currentCompletedState
-    });
+  onChange() {
+    this.props.toggle(this.props.id);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return this.props !== nextProps;
   }
 
   render() {
-    var inputId = "input-".concat(this.state.index);
+    var inputId = "input-".concat(this.props.id);
 
     return (
       <li>
-        <div>
+        <div className='item'>
           <input
             id={inputId}
-            type="checkbox"
-            checked={this.state.completed}
+            type='checkbox'
+            checked={this.props.todoItem.completed}
             onChange={this.onChange}
           />
-          <label>{this.state.title}</label>
+          <label>{this.props.todoItem.title}</label>
+          <RemoveButton remove={this.props.remove} id={this.props.id}/>
         </div>
       </li>
     );

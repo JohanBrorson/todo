@@ -1,0 +1,23 @@
+.btn-remove {
+  display: none;
+  justify-content: flex-end;
+  margin-left: auto;
+  padding-right: 0px;
+  font-size: 30px;
+  background-color: white;
+  color: #ac3b3f;
+  opacity: 0.6;
+  outline: none;
+}
+
+.btn-remove:hover {
+  opacity: 1;
+}
+
+.btn-remove:after {
+  content: '×';
+}
+
+li:hover .btn-remove {
+  display: block;
+}

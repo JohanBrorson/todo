@@ -18,7 +18,8 @@ export default class ToDoList extends React.PureComponent {
                 key={index}
                 id={index}
                 todoItem={item}
-                toggle={this.props.toggle}>
+                toggle={this.props.toggle}
+                remove={this.props.remove}>
               </ToDoItem>
           ))}
         </ul>
