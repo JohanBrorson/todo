@@ -3,7 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './__mocks__/localstorage';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+const consoleSpy = jest.spyOn(console, 'log').mockImplementation()
+describe("<App />", () => {
+
+  afterAll(() => {
+    consoleSpy.mockRestore();
+  })
+
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+  });
+
 });
