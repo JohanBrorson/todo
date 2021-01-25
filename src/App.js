@@ -16,7 +16,7 @@ export default class App extends Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let initialState = JSON.parse(localStorage.getItem('state'))  || [];
     console.log('Initial state:', JSON.stringify(initialState));
     this.setState({items: initialState});
